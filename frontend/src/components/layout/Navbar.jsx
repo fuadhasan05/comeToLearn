@@ -162,7 +162,7 @@ const Navbar = () => {
       className="bg-[#151515] text-white sticky top-0 z-50 shadow-lg py-2"
       aria-label="Main Navigation"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div>
@@ -173,7 +173,7 @@ const Navbar = () => {
             >
               <span className="text-3xl font-bold text-white hover:text-gray-300 transition-colors leading-none">
                 ComeToLearn
-                <span className="text-red-600 block text-lg font-normal mt-[-0.2em]">
+                <span className="text-red-700 block text-lg font-normal mt-[-0.2em]">
                   withSamad
                 </span>
               </span>
@@ -216,7 +216,7 @@ const Navbar = () => {
             {/* Login Button */}
             <Link
               href="/login"
-              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md font-medium transition-colors"
+              className="bg-red-700 hover:bg-red-600 text-white px-6 py-2 rounded-md font-medium transition-colors"
             >
               Login
             </Link>
@@ -296,7 +296,7 @@ const Navbar = () => {
           {/* Mobile Login Button */}
           <Link
             href="/login"
-            className="block px-3 py-2 mt-2 bg-red-600 hover:bg-red-700 text-white rounded-md font-medium text-center transition-colors"
+            className="block px-3 py-2 mt-2 bg-red-700 hover:bg-red-600 text-white rounded-md font-medium text-center transition-colors"
             onClick={closeMobileMenu}
           >
             Login
