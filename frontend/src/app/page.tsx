@@ -1,10 +1,12 @@
-import Banner from '@/components/layout/Banner';
+import Banner from '@/components/home/Banner';
+import CTASection from '@/components/home/CTASection';
 
 export default function Home() {
   return (
     <main>
       <Banner />
-      {/* Other sections */}
+      
+      <CTASection/>
     </main>
   );
 }

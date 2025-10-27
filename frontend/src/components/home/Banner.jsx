@@ -1,5 +1,5 @@
 "use client";
-import { FaBookOpen, FaComments, FaUsers } from "react-icons/fa";
+import { FaBookOpen, FaCheckCircle, FaComments, FaUsers } from "react-icons/fa";
 import dynamic from "next/dynamic";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
@@ -31,13 +31,17 @@ const ACHIEVEMENTS = [
 
 export default function Banner() {
   return (
-    <section className="bg-black text-white min-h-screen flex py-16 px-4 sm:px-6 lg:px-8">
+    <section className="bg-black text-white min-h-screen flex py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto w-full">
         {/* Name & Tagline Badge  */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
           <div className="border-2 border-red-700 rounded-md px-6 py-3 sm:px-8 sm:py-4 items-center space-x-2 sm:space-x-3 bg-black/50 backdrop-blur-sm">
-            <h1 className="text-3xl lg:text-5xl font-bold text-white text-center">
+            <h1 className="flex items-center justify-center gap-2 text-3xl lg:text-5xl font-bold text-white text-center">
               Abdus Samad
+              <FaCheckCircle
+                className="text-blue-500 text-2xl lg:text-4xl"
+                title="Verified"
+              />
             </h1>
           </div>
 
@@ -63,7 +67,7 @@ export default function Banner() {
 
           {/* 2. Right Section: Video */}
           <div className="lg:col-span-6 order-1 lg:order-2">
-            <div className="relative rounded-lg overflow-hidden border border-red-700 bg-gray-900 aspect-video">
+            <div className="relative rounded-lg overflow-hidden border-2 border-red-700 bg-gray-900 aspect-video">
               <LiteYouTubeEmbed
                 id="DglLwXrWmsM"
                 title="Who am I? - Abdus Samad"
