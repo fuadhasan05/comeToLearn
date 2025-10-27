@@ -1,5 +1,6 @@
 import Banner from '@/components/home/Banner';
 import CTASection from '@/components/home/CTASection';
+import LiveClass from '@/components/home/LiveClass';
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <Banner />
       
       <CTASection/>
+      <LiveClass/>
     </main>
   );
 }

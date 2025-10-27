@@ -10,7 +10,7 @@ const LiteYouTubeEmbed = dynamic(() => import("react-lite-youtube-embed"), {
 const AchievementItem = ({ children }) => (
   <li className="flex items-start space-x-3">
     <span
-      className="text-red-700 w-2 h-2 mt-2.5 flex-shrink-0 bg-red-700 rounded-full"
+      className="text-red-700 w-2 h-2 mt-2.5 shrink-0 bg-red-700 rounded-full"
       aria-hidden="true"
     />
     <span className="text-base sm:text-lg text-gray-200">{children}</span>
@@ -56,7 +56,7 @@ export default function Banner() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* 1. Left Section: Achievements List */}
           <div className="lg:col-span-6 order-2 lg:order-1">
-            <div className="bg-[#151515] backdrop-blur-sm rounded-md p-6 sm:p-8 border border-yellow-700 h-full">
+            <div className="bg-[#151515] backdrop-blur-sm rounded-md p-6 sm:p-8 border-2 border-yellow-700 h-full">
               <ul className="space-y-1 sm:space-y-2">
                 {ACHIEVEMENTS.map((text, index) => (
                   <AchievementItem key={index}>{text}</AchievementItem>
