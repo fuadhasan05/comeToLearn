@@ -12,11 +12,11 @@ export default function CTASection() {
     <section className="bg-black text-white">
       <div className="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8">
         {/* Main Heading */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-4">
           <h2 className="text-3xl lg:text-6xl font-bold text-red-600 mb-4">
             কিভাবে কোর্স কিনবেন?
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-white">
+          <p className="text-lg md:text-2xl text-white">
             Very Simple - দুই মিনিটের এই ভিডিওটি দেখে নিন
           </p>
         </div>

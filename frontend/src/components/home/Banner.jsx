@@ -81,7 +81,7 @@ export default function Banner() {
         </div>
 
         {/* Bottom Stats */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-12 lg:mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 lg:mt-16">
           {/* Total Learners */}
           <div className="bg-gray-900/60 backdrop-blur-sm border border-gray-800 rounded-md p-4 text-center flex flex-col items-center">
             <FaUsers className="text-yellow-700 text-3xl mb-2" />

@@ -32,7 +32,7 @@ export default function LiveClass() {
           <h1 className="text-3xl lg:text-6xl font-bold text-white mb-8">
             আমার সেরা লাইভ ক্লাসগুলো
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl mt-4 text-red-700">
+          <p className="text-lg md:text-2xl mt-4 text-red-700">
             আমি আমার জীবনের সেরা লেসনগুলো শেয়ার করেছি
           </p>
         </div>
