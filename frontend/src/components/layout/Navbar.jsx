@@ -82,7 +82,7 @@ const MobileDropdown = ({
 };
 
 // ---Navigation Links ---
-const navData = {
+export const navData = {
   mainLinks: [
     { href: "/live-course", label: "Live Course" },
     { href: "/all-courses", label: "All Course" },

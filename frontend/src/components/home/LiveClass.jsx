@@ -107,7 +107,7 @@ export default function LiveClass() {
 
         {/* Call to Action */}
         <div className="mt-16 text-center">
-          <div className="bg-linear-to-r from-red-900/20 via-red-800/20 to-red-900/20 border-2 border-red-700 rounded-md p-8 sm:p-12">
+          <div className="bg-linear-to-r from-red-900/20 via-red-800/20 to-red-900/20 border-2 border-red-700 rounded-md p-8 md:p-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               আপনিও যোগ দিন আমাদের লাইভ ক্লাসে
             </h2>

@@ -10,8 +10,8 @@ import {
 
 export default function Support() {
   return (
-    <section className="bg-black text-white py-24 text-center">
-      <div className="max-w-7xl mx-auto  border-2 border-red-700 rounded-md p-8 sm:p-12">
+    <section className="bg-black text-white py-24 text-center px-4 md:px-8">
+      <div className="max-w-7xl mx-auto  border-2 border-red-700 rounded-md p-6 md:p-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-8">
           আমার কাছ থেকে <span className="text-red-700">ফ্রি সাপোর্ট</span> পেতে
           এখনই যুক্ত হোন!
