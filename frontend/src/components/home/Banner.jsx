@@ -67,7 +67,7 @@ export default function Banner() {
 
           {/* 2. Right Section: Video */}
           <div className="lg:col-span-6 order-1 lg:order-2">
-            <div className="relative rounded-lg overflow-hidden border-2 border-red-700 bg-gray-900 aspect-video">
+            <div className="relative rounded-md overflow-hidden border-2 border-red-700 bg-gray-900 aspect-video">
               <LiteYouTubeEmbed
                 id="DglLwXrWmsM"
                 title="Who am I? - Abdus Samad"
