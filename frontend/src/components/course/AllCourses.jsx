@@ -62,7 +62,7 @@ export default function AllCourses() {
           <h1 className="text-6xl max-w-5xl mx-auto font-bold text-center mb-16">
             আমার একটিভ <span className="text-red-700">কোর্সসমূহ</span>
           </h1>
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-6">
             {courses.map((course) => (
               <CourseCard key={course._id} course={course} />
             ))}
