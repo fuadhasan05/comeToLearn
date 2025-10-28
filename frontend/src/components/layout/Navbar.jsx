@@ -91,7 +91,7 @@ export const navData = {
     {
       title: "10 TK Course",
       links: [
-        { href: "/courses/freelance-calc", label: "Freelancing Calculator" },
+        { href: "/courses/freelance-calculator", label: "Freelancing Calculator" },
         { href: "/courses/google-ads-basic", label: "Google Ads Basic Course" },
       ],
     },
