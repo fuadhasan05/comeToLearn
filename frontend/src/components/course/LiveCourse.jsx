@@ -1,6 +1,14 @@
 "use client";
 import { CheckCircle, Clock, ArrowRight, Gift, Star } from "lucide-react";
 import { useState, useEffect, useMemo } from "react";
+import {
+  BookOpen,
+  Calendar,
+  Video,
+  Clock3,
+  Film,
+  ChevronDown,
+} from "lucide-react";
 
 // Button Component
 const PrimaryCTA = ({
@@ -110,6 +118,25 @@ const useCountdown = (targetDate) => {
 
 const formatTime = (time) => String(time).padStart(2, "0");
 
+const faqs = [
+  {
+    q: "ভাইয়া, এই কোর্সটি রেকর্ডিং না লাইভ?",
+    a: "১০০% লাইভ কোর্স ভাইয়া I প্রতিটি ক্লাস লাইভে আমি নিজে নিব ",
+  },
+  {
+    q: "ভাইয়া ক্লাস শেষে কি রেকর্ডিং ভিডিও দেওয়া হবে?",
+    a: "ক্লাস শেষ করার এক ঘন্টার মধ্যে রেকর্ডিং ভিডিও দেওয়া হবে ইনশা আল্লাহ I",
+  },
+  {
+    q: "ক্লাস শেষে কি প্রশ্ন করার সুযোগ থাকবে ভাইয়া?",
+    a: "হ্যাঁ ভাইয়া, আপনার একটি প্রশ্ন আমি রেখে আমি ক্লাস শেষ করব না I",
+  },
+  {
+    q: "ভাইয়া কোর্স শেষ করার পর কি সাপোর্ট পাবো?",
+    a: "হ্যাঁ ভাইয়া কোর্স শেষ পরে, প্রতি শুক্রবার একটা করে লাইভ ক্লাস নেওয়া হবে ইনশা আল্লাহ I",
+  },
+];
+
 // --- MAIN COMPONENT ---
 
 export default function LiveCourse() {
@@ -135,13 +162,6 @@ export default function LiveCourse() {
     { title: "Google Ads Live Project", value: "2000 TK" },
     { title: "Client Communication Masterclass", value: "2000 TK" },
     { title: "Full Value", value: "20,000 TK", isTotal: true },
-  ];
-
-  const benefits = [
-    "রেকর্ডেড ভিডিও",
-    "রিয়েল ক্লায়েন্ট মিটিং",
-    "প্রফেশনাল স্কিল উন্নয়ন",
-    "লাইভ সাপোর্ট সেশন",
   ];
 
   return (
@@ -233,9 +253,7 @@ export default function LiveCourse() {
             </ul>
 
             <div className="mt-8 text-center">
-              <SecondaryCTA>
-                আমার পরামর্শ গ্রহণ করুন
-              </SecondaryCTA>
+              <SecondaryCTA>আমার পরামর্শ গ্রহণ করুন</SecondaryCTA>
             </div>
           </div>
         </div>
@@ -352,37 +370,64 @@ export default function LiveCourse() {
         </div>
       </section>
 
-      {/* 6. Benefits Section */}
-      <section className="bg-black py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-white mb-12">
-            এই কোর্সে আপনি যা যা পাবেন
-          </h2>
+      {/* Course Summary Section */}
+      <section className="py-16 px-4 bg-black text-center text-white">
+        <h2 className="inline-block text-2xl md:text-3xl font-bold bg-white text-black px-8 py-3 rounded-md">
+          COURSE SUMMARY
+        </h2>
 
-          {/* Benefits Grid - Using IconBenefit component */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-            {benefits.map((benefit, index) => (
-              <IconBenefit key={index}>{benefit}</IconBenefit>
-            ))}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 bg-gray-900/60 rounded-md p-10 shadow-xl border border-gray-800">
+          <div className="flex flex-col items-center space-y-2">
+            <BookOpen className="text-red-600 w-10 h-10" />
+            <h3 className="text-2xl font-bold text-red-600">50+</h3>
+            <p className="text-gray-300 text-sm">Lessons</p>
+          </div>
+
+          <div className="flex flex-col items-center space-y-2">
+            <Calendar className="text-red-600 w-10 h-10" />
+            <h3 className="text-lg font-semibold">Validity</h3>
+            <p className="text-red-600 text-sm">Unlimited</p>
+          </div>
+
+          <div className="flex flex-col items-center space-y-2">
+            <Video className="text-red-600 w-10 h-10" />
+            <h3 className="text-lg font-semibold">Live Course</h3>
+            <p className="text-red-600 text-sm">Type</p>
+          </div>
+
+          <div className="flex flex-col items-center space-y-2">
+            <Clock3 className="text-red-600 w-10 h-10" />
+            <h3 className="text-lg font-semibold">70 Hours +</h3>
+            <p className="text-red-600 text-sm">Duration</p>
+          </div>
+
+          <div className="flex flex-col items-center space-y-2">
+            <Film className="text-red-600 w-10 h-10" />
+            <h3 className="text-lg font-semibold">Get Record Video</h3>
+            <p className="text-red-600 text-sm">Within 24h</p>
           </div>
         </div>
       </section>
 
-      {/* 7. Final CTA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white mb-6">
-            আর দেরি না করে আজই শুরু করুন
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            সীমিত সংখ্যক সিট বাকি আছে। এখনই এনরোল করুন!
-          </p>
-          <PrimaryCTA
-            icon={Gift}
-            className="text-xl sm:text-2xl px-12 py-5"
-          >
-            এখনই এনরোল করুন
-          </PrimaryCTA>
+      {/* FAQ Section */}
+      <section className="py-20 px-4 bg-black text-center text-white">
+        <h2 className="text-2xl md:text-4xl font-bold text-red-700 mb-10">
+          লাইভ কোর্স নিয়ে আপনাদের কমন কিছু প্রশ্নের উত্তর:
+        </h2>
+
+        <div className="max-w-2xl mx-auto space-y-4">
+          {faqs.map((item, i) => (
+            <details
+              key={i}
+              className="group bg-white rounded-md border border-gray-800 overflow-hidden text-black"
+            >
+              <summary className="flex justify-between items-center cursor-pointer px-6 py-4 text-left font-semibold text-lg transition-all">
+                <span>{item.q}</span>
+                <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200" />
+              </summary>
+              <div className="px-6 pb-4 text-gray-800">{item.a}</div>
+            </details>
+          ))}
         </div>
       </section>
     </div>
