@@ -2,6 +2,7 @@
 import { ShoppingCart } from "lucide-react";
 import dynamic from "next/dynamic";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+import Button from "../ui/Button";
 
 const LiteYouTubeEmbed = dynamic(() => import("react-lite-youtube-embed"), {
   ssr: false,
@@ -37,13 +38,15 @@ export default function CTASection() {
 
         {/* CTA Button */}
         <div className="text-center">
-          <a
-            href="/courses/purchase"
-            className="inline-flex items-center gap-3 bg-red-700 text-white font-bold text-lg px-10 py-4 rounded-md transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-600/50 group"
+          <Button
+            href="/all-courses"
+            variant="primary"
+            size="md"
+            className="inline-flex items-center"
+            icon={ShoppingCart}
           >
-            <span>Start Your Purchase</span>
-            <ShoppingCart className="w-6 h-6 sm:w-7 sm:h-7 group-hover:animate-bounce" />
-          </a>
+            Start Your Purchase
+          </Button>
         </div>
       </div>
     </section>

@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import CourseCard from "../course/CourseCard";
-import Link from "next/link";
 import Loading from "../ui/Loading";
 import { ArrowRight } from "lucide-react";
+import Button from "../ui/Button";
 
 export default function FeaturedCourses() {
   const [premiumCourses, setPremiumCourses] = useState([]);
@@ -42,16 +42,14 @@ export default function FeaturedCourses() {
 
         {/* Show All Button */}
         <div className="flex justify-center mt-16">
-          <Link
+          <Button
             href="/all-courses"
-            className="inline-flex items-center gap-3 bg-white text-black font-bold text-lg px-10 py-4 rounded-md transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-gray-600/50 group"
+            variant="ghost"
+            size="md"
+            icon={ArrowRight}
           >
             Show All Courses
-            <ArrowRight
-              size={18}
-              className="w-6 h-6 sm:w-7 sm:h-7 group-hover:animate-bounce"
-            />
-          </Link>
+          </Button>
         </div>
       </div>
     </section>

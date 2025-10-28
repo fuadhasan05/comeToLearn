@@ -2,6 +2,8 @@
 
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+import Button from "../ui/Button";
+import { ShoppingCart } from "lucide-react";
 
 export default function LiveClass() {
   const videos = [
@@ -114,12 +116,15 @@ export default function LiveClass() {
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
               প্রতিটি লাইভ সেশনে সরাসরি প্রশ্ন করুন এবং রিয়েল-টাইম ফিডব্যাক পান
             </p>
-            <a
+            <Button
               href="/live-course"
-              className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold text-lg px-10 py-4 rounded-md transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-600/50"
+              variant="primary"
+              size="md"
+              className="inline-flex items-center"
+              icon={ShoppingCart}
             >
               ফ্রি লাইভ ক্লাসে এনরোল করুন
-            </a>
+            </Button>
           </div>
         </div>
       </div>
