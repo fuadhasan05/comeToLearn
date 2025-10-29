@@ -445,7 +445,7 @@ export default function CurriculumSection({ course_id }) {
             className="inline-flex items-center"
             icon={ShoppingCart}
           >
-            এনরোল করুন - মাত্র ১০ টাকা
+            কোর্সটি কিনুন
           </Button>
         </div>
       </div>

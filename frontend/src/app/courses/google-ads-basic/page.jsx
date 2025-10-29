@@ -17,38 +17,32 @@ const LiteYouTubeEmbed = dynamic(() => import("react-lite-youtube-embed"), {
   ssr: false,
 });
 
-export default function FreelancingCalculatorPage() {
+export default function GoogleAdsBasicPage() {
   const courseFeatures = [
-    "ফ্রিল্যান্সিং সম্পর্কে ক্লিয়ার একটা ধারণা পাবেন",
-    "ফ্রিল্যান্সিং সম্পর্কে সকল ভয় ভীতি দূর হবে",
-    "কিভাবে ফ্রিল্যান্সিং শুরু করবেন তার একটা রাস্তা খুঁজে পাবেন",
+    "Google Ads সম্পর্কে ক্লিয়ার একটা ধারণা পাবেন",
+    "Google Ads সম্পর্কে সকল ভয় ভীতি দূর হবে",
+    "কিভাবে Google Ads শুরু করবেন তার একটা রাস্তা খুঁজে পাবেন",
     "এই কোর্সটি করার পর আপনাকে কেউ ধোকা দিতে পারবে না",
     "কোর্সটি চলাকালীন বা শেষেও WhatsApp ফ্রি সাপোর্ট পাবেন",
-    "ফ্রিল্যান্সিং জীবনের সকল হিসাব মিলাতে পারবেন",
+    "Google Ads জীবনের সকল হিসাব মিলাতে পারবেন",
   ];
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-white text-black">
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
           {/* Left Content */}
           <div>
             <h1 className="text-3xl md:text-5xl font-bold mb-6">
-              1. Freelancing Calculator
+              2. Google Ads Basic Course for Beginners
             </h1>
 
             <h2 className="text-2xl md:text-4xl font-bold text-yellow-600 mb-4 leading-tight">
-              ফ্রিল্যান্সিং কি আপনার জন্য উপযুক্ত?
+              Google Ads কি আপনার জন্য উপযুক্ত?
               <br />
-              <span className="text-white">জেনে নিন মাত্র ১০ টাকায়</span>
+              <span className="text-black">জেনে নিন মাত্র ১০ টাকায়</span>
             </h2>
-
-            <p className="text-lg md:text-xl text-white mb-8 leading-relaxed">
-              বাংলাদেশের <span className="text-red-500">৯০%</span> ফ্রিল্যান্সার
-              ভুল পথে যাত্রা শুরু করে। আমি চাই না, আপনিও সেই ৯০% এর একজন হোন। এই
-              কোর্সটি আপনাকে বাকি ১০% এর মধ্যকার একজন বানাবে, ইনশাআল্লাহ।
-            </p>
 
             <Button
               href="/all-courses"
@@ -65,7 +59,7 @@ export default function FreelancingCalculatorPage() {
           <div className="flex justify-center">
             <div className="w-full max-w-3xl rounded-md overflow-hidden border-2 border-red-700 bg-gray-900 aspect-video">
               <LiteYouTubeEmbed
-                id="gAC_PXe1YvU"
+                id="TRjvfHxGCqM"
                 title="আমাদের কোর্স কেনার উপায়"
                 poster="maxresdefault"
                 noCookie
@@ -78,50 +72,50 @@ export default function FreelancingCalculatorPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center bg-black/50 rounded-lg p-6 border border-gray-800">
+            <div className="text-center bg-gray-100 rounded-lg p-6 border border-gray-200">
               <Users className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">350+</div>
-              <div className="text-gray-400 text-sm">Students Enrolled</div>
+              <div className="text-3xl font-bold text-black mb-2">350+</div>
+              <div className="text-gray-600 text-sm">Students Enrolled</div>
             </div>
-            <div className="text-center bg-black/50 rounded-lg p-6 border border-gray-800">
+            <div className="text-center bg-gray-100 rounded-lg p-6 border border-gray-200">
               <Star className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">5.0</div>
-              <div className="text-gray-400 text-sm">Course Rating</div>
+              <div className="text-3xl font-bold text-black mb-2">5.0</div>
+              <div className="text-gray-600 text-sm">Course Rating</div>
             </div>
-            <div className="text-center bg-black/50 rounded-lg p-6 border border-gray-800">
+            <div className="text-center bg-gray-100 rounded-lg p-6 border border-gray-200">
               <Clock className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">1h 30m</div>
-              <div className="text-gray-400 text-sm">Course Duration</div>
+              <div className="text-3xl font-bold text-black mb-2">1h 30m</div>
+              <div className="text-gray-600 text-sm">Course Duration</div>
             </div>
-            <div className="text-center bg-black/50 rounded-lg p-6 border border-gray-800">
+            <div className="text-center bg-gray-100 rounded-lg p-6 border border-gray-200">
               <ChartLine className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">Beginner</div>
-              <div className="text-gray-400 text-sm">Level</div>
+              <div className="text-3xl font-bold text-black mb-2">Beginner</div>
+              <div className="text-gray-600 text-sm">Level</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Value Proposition Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gray-900/60 backdrop-blur-md border border-gray-800 rounded-xl p-8 md:p-12 text-center shadow-xl">
+          <div className="bg-gray-100 border border-gray-200 rounded-xl p-8 md:p-12 text-center shadow-lg">
             {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl font-bold mb-10 leading-tight">
-              নিজেকে গড়ার শুরুটায় হোক সঠিকভাবে!
+            <h2 className="text-3xl sm:text-4xl font-bold mb-10 leading-tight text-gray-900">
+              নিজেকে গড়ার শুরুটায় হোক সঠিকভাবে!
             </h2>
             {/* Highlight Box */}
-            <div className="bg-black/60 border border-gray-800 rounded-2xl p-8 transition-all duration-300 hover:bg-black/70">
-              <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="bg-white border border-gray-200 rounded-2xl p-8 transition-all duration-300 hover:bg-gray-50">
+              <div className="flex items-center justify-center gap-3 mb-4 text-gray-900">
                 <TrendingUp className="w-8 h-8 text-yellow-500" />
                 <h3 className="text-2xl font-semibold">
                   মাত্র ১০ টাকার কোর্স করেই খুঁজে নিন
                 </h3>
               </div>
-              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
                 ফ্রিল্যান্সিংয়ে আপনার সম্ভাবনা কতটুকু
               </p>
             </div>
@@ -130,7 +124,7 @@ export default function FreelancingCalculatorPage() {
       </section>
 
       {/* Modul Section */}
-      <CurriculumSection course_id="CALC-001" />
+      <CurriculumSection course_id="GADS-010" />
 
       {/* Testimonial Sections */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-black via-gray-900 to-black">
