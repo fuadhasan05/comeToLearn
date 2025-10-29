@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Button from "../ui/Button";
 
 export default function CourseCard({ course }) {
   const courseLink = `/courses/${course.route}`;
@@ -38,7 +39,7 @@ export default function CourseCard({ course }) {
             </h2>
           </Link>
 
-          {/* === OPTIMIZED PRICE SECTION === */}
+          {/* === PRICE SECTION === */}
           <div className="mt-3 mb-4">
             {is_free ? (
               // Case 1: FREE Course
@@ -66,20 +67,18 @@ export default function CourseCard({ course }) {
               </p>
             )}
           </div>
-          {/* === END OPTIMIZED PRICE SECTION === */}
         </div>
 
         {/* View Details Button (Fixed at bottom) */}
-        <Link
+        <Button
           href={courseLink}
-          className="group inline-flex items-center justify-center gap-2 bg-black hover:bg-gray-900 text-white font-medium rounded-lg px-4 py-2 transition-colors w-full mt-auto"
+          variant="secondary"
+          size="sm"
+          className="inline-flex items-center"
+          icon={ArrowRight}
         >
           View Details
-          <ArrowRight
-            size={18}
-            className="transform transition-transform duration-300 group-hover:translate-x-1"
-          />
-        </Link>
+        </Button>
       </div>
     </div>
   );

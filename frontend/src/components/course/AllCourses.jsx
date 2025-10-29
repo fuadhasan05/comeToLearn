@@ -41,7 +41,7 @@ export default function AllCourses() {
     <section className="bg-black text-white py-24 px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-5xl max-w-5xl mx-auto font-bold text-center mb-12">
+        <h1 className="text-3xl md:text-5xl max-w-5xl mx-auto font-bold text-center mb-12">
           কোন কোর্স আগে করবেন?{" "}
           <span className="text-red-700">এই ভিডিও দেখুন</span>
         </h1>
@@ -59,10 +59,10 @@ export default function AllCourses() {
 
         {/* Course Grid */}
         <div className="mt-24">
-          <h1 className="text-6xl max-w-5xl mx-auto font-bold text-center mb-16">
+          <h1 className="text-3xl md:text-6xl max-w-5xl mx-auto font-bold text-center mb-16">
             আমার একটিভ <span className="text-red-700">কোর্সসমূহ</span>
           </h1>
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-4 gap-6 bg-[#151515] p-6 rounded-md">
             {courses.map((course) => (
               <CourseCard key={course._id} course={course} />
             ))}

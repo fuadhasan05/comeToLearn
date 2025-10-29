@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 // Default styles for the primary look
-const BASE_CLASSES = "font-bold rounded-lg transition-all duration-300 transform flex items-center justify-center gap-2";
+const BASE_CLASSES = "font-bold rounded-md transition-all duration-300 transform flex items-center justify-center gap-2";
 
 export default function Button({
   children,
