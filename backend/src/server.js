@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import courseRoutes from "./routes/courseRoutes.js";
+import moduleRoutes from "./routes/module.routes.js";
 
 dotenv.config();
 const app = express();
@@ -18,6 +19,9 @@ mongoose
 
 // ✅ API Routes
 app.use("/api/courses", courseRoutes);
+
+// Courses Modules
+app.use('/api/modules', moduleRoutes); 
 
 // Root route
 app.get("/", (req, res) => res.send("API is running 🚀"));
