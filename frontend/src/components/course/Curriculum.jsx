@@ -130,7 +130,13 @@ export default function CurriculumSection({ course_id }) {
   const [formModule, setFormModule] = useState(null);
 
   const handleNew = () => {
-    setFormModule({ course_id: course_id || "", title: "", lessons: [] });
+    const nextIndex = curriculum.length + 1;
+    setFormModule({
+      course_id: course_id || "",
+      title: "",
+      module_index: nextIndex,
+      lessons: [],
+    });
     setShowForm(true);
   };
 
@@ -177,6 +183,21 @@ export default function CurriculumSection({ course_id }) {
   const saveModule = async () => {
     if (!formModule) return;
     try {
+      // Validate required fields
+      if (!formModule.course_id || !formModule.title) {
+        alert("Course ID and title are required");
+        return;
+      }
+
+      // Update lesson_index based on current order
+      const moduleToSave = {
+        ...formModule,
+        lessons: formModule.lessons.map((lesson, index) => ({
+          ...lesson,
+          lesson_index: index + 1,
+        })),
+      };
+
       const method = formModule._id ? "PUT" : "POST";
       const url = formModule._id
         ? `${process.env.NEXT_PUBLIC_API_URL}/api/modules/${formModule._id}`
@@ -185,20 +206,24 @@ export default function CurriculumSection({ course_id }) {
       const res = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formModule),
+        body: JSON.stringify(moduleToSave),
       });
 
-      if (!res.ok)
+      const data = await res.json();
+
+      if (!res.ok) {
         throw new Error(
-          `Failed to ${formModule._id ? "update" : "create"} module`
+          data.message ||
+            `Failed to ${formModule._id ? "update" : "create"} module`
         );
+      }
 
       setShowForm(false);
       setFormModule(null);
       await fetchCurriculum(); // Re-fetch data to update the list
     } catch (err) {
       console.error("Error saving module:", err);
-      alert("Error saving module. See console.");
+      alert(`Failed to save module: ${err.message}`);
     }
   };
 

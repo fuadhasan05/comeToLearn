@@ -77,7 +77,7 @@ export default function GoogleAdsBasicPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center bg-gray-100 rounded-lg p-6 border border-gray-200">
               <Users className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-black mb-2">350+</div>
+              <div className="text-3xl font-bold text-black mb-2">1000+</div>
               <div className="text-gray-600 text-sm">Students Enrolled</div>
             </div>
             <div className="text-center bg-gray-100 rounded-lg p-6 border border-gray-200">
@@ -87,7 +87,7 @@ export default function GoogleAdsBasicPage() {
             </div>
             <div className="text-center bg-gray-100 rounded-lg p-6 border border-gray-200">
               <Clock className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-black mb-2">1h 30m</div>
+              <div className="text-3xl font-bold text-black mb-2">7h 34m</div>
               <div className="text-gray-600 text-sm">Course Duration</div>
             </div>
             <div className="text-center bg-gray-100 rounded-lg p-6 border border-gray-200">

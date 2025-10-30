@@ -52,7 +52,46 @@ export default function CurriculumModuleForm({
           <div className="space-y-3">
             {/* Lesson Inputs */}
             {(formModule.lessons || []).map((ls, idx) => (
-              <div key={idx} className="flex gap-2">
+              <div key={idx} className="flex gap-2 items-center">
+                <div className="shrink-0 w-8 text-center font-medium text-gray-500">
+                  {idx + 1}
+                </div>
+                <div className="shrink-0 flex flex-col gap-1">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (idx > 0) {
+                        const newLessons = [...formModule.lessons];
+                        [newLessons[idx - 1], newLessons[idx]] = [
+                          newLessons[idx],
+                          newLessons[idx - 1],
+                        ];
+                        updateFormField("lessons", newLessons);
+                      }
+                    }}
+                    disabled={idx === 0}
+                    className={`text-gray-500 hover:text-gray-700 ${idx === 0 ? "opacity-30 cursor-not-allowed" : "cursor-pointer"}`}
+                  >
+                    ↑
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (idx < formModule.lessons.length - 1) {
+                        const newLessons = [...formModule.lessons];
+                        [newLessons[idx], newLessons[idx + 1]] = [
+                          newLessons[idx + 1],
+                          newLessons[idx],
+                        ];
+                        updateFormField("lessons", newLessons);
+                      }
+                    }}
+                    disabled={idx === formModule.lessons.length - 1}
+                    className={`text-gray-500 hover:text-gray-700 ${idx === formModule.lessons.length - 1 ? "opacity-30 cursor-not-allowed" : "cursor-pointer"}`}
+                  >
+                    ↓
+                  </button>
+                </div>
                 <input
                   value={ls.title || ""}
                   onChange={(e) =>
@@ -70,8 +109,9 @@ export default function CurriculumModuleForm({
                   className="w-28 border border-gray-300 rounded-xl p-2 font-mono"
                 />
                 <button
+                  type="button"
                   onClick={() => removeLessonFromForm(idx)}
-                  className="text-red-600 cursor-pointer"
+                  className="text-red-600 hover:text-red-700 cursor-pointer px-2"
                 >
                   Remove
                 </button>
