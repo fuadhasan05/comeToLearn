@@ -103,10 +103,6 @@ export const navData = {
           label: "Total Freelancing Package",
         },
         {
-          href: "/courses/ads-conversion-tracking",
-          label: "Google Ads Conversion Tracking",
-        },
-        {
           href: "/courses/client-communication",
           label: "Freelancing Client Communication",
         },
@@ -121,6 +117,10 @@ export const navData = {
         {
           href: "/courses/freedom-freelancing-formula",
           label: "The Freedom Freelancing Formula",
+        },
+        {
+          href: "/courses/ads-conversion-tracking",
+          label: "Google Ads Conversion Tracking",
         },
       ],
     },
