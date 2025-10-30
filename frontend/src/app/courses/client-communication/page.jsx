@@ -1,163 +1,56 @@
 "use client";
-import { useState } from "react";
-import { Clock, Users, ShoppingCart, ChartLine, Youtube } from "lucide-react";
-import Button from "../../../components/ui/Button";
-import dynamic from "next/dynamic";
-import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+import CourseHeroSection from "../../../components/course/CourseHero";
+import StatsSection from "../../../components/course/CourseStats";
 import CurriculumSection from "../../../components/course/Curriculum";
-
-const LiteYouTubeEmbed = dynamic(() => import("react-lite-youtube-embed"), {
-  ssr: false,
-});
+import TestimonialSection from "../../../components/course/Testimonial";
 
 export default function FreelancingCalculatorPage() {
-  const [expanded, setExpanded] = useState(false);
+  const freelancingHeroData = {
+    tags: [
+      {
+        label: "Premium Course",
+        bgColor: "bg-yellow-500/20",
+        borderColor: "border-yellow-500",
+      },
+      {
+        label: "Recorded",
+        bgColor: "bg-red-600/20",
+        borderColor: "border-red-500",
+      },
+    ],
+    title: "Freelancing Client Communication",
+    subtitle: "কোর্সটির মূল উদ্দেশ্য কী?",
+    description:
+      "ফ্রিল্যান্সিং ইন্ডাস্ট্রিতে, আমাদের বাংলাদেশী ফ্রিল্যান্সারদের সবচেয়ে বড় চ্যালেঞ্জ হলো USA, UK, Canada, Germany, Netherland এর মতো দেশের বায়ারদের সাথে সঠিকভাবে কমিউনিকেশন করা। কাজের ডিটেইলস ঠিকমতো না বুঝে কাজ নিলে পরে অনেক সমস্যা হয়, তাই ক্লায়েন্টের সঠিক কমিউনিকেশনটা খুবই গুরুত্বপূর্ণ। এই কারণেই আমি তৈরি করেছি এই Freelancing Client Communication কোর্সটি, এই কোর্সটি আমি আমার নিজের কয়েক বছরের রিয়েল এক্সপেরিয়েন্স দিয়ে সাজিয়েছি।",
+    buttonText: "কোর্সটি তে ভর্তি হন",
+    buttonHref: "/courses/freelancing-client-comm/enroll", // Example dynamic href
+    currentPrice: "৳1990",
+    originalPrice: "৳5000",
+    discountPercentage: "60% Discount",
+    videoId: "rXkeA2SQ510",
+    videoTitle: "আমাদের কোর্স কেনার উপায়",
+  };
+
+  const communicationStats = [
+    { value: "500+", label: "Students Enrolled" },
+    { value: "60", label: "Lessons" },
+    { value: "12h 30m", label: "Course Duration" },
+    { value: "All", label: "Level" },
+  ];
 
   return (
     <div className="bg-black text-white">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-start gap-10">
-          {/* Left Content */}
-          <div className="flex flex-col justify-center">
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              <div className="bg-yellow-500/20 text-white px-3 py-1 rounded-full border border-yellow-500 text-xs font-semibold shadow-md">
-                Premium Course
-              </div>
-              <div className="bg-red-600/20 text-white px-3 py-1 rounded-full border border-red-500 text-xs font-semibold shadow-md">
-                Recorded
-              </div>
-            </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6">
-              Freelancing Client Communication
-            </h1>
-
-            <h2 className="text-2xl md:text-3xl font-bold text-yellow-500 mb-4 leading-tight">
-              কোর্সটির মূল উদ্দেশ্য কী?
-            </h2>
-
-            {/* Only this content expands */}
-            <div className="relative text-left">
-              <p
-                className={`text-lg md:text-xl text-white mb-4 leading-relaxed transition-all duration-300 ${
-                  expanded ? "max-h-[1000px]" : "max-h-34 overflow-hidden"
-                }`}
-              >
-                ফ্রিল্যান্সিং ইন্ডাস্ট্রিতে, আমাদের বাংলাদেশী ফ্রিল্যান্সারদের
-                সবচেয়ে বড় চ্যালেঞ্জ হলো USA, UK, Canada, Germany, Netherland
-                এর মতো দেশের বায়ারদের সাথে সঠিকভাবে কমিউনিকেশন করা। কাজের
-                ডিটেইলস ঠিকমতো না বুঝে কাজ নিলে পরে অনেক সমস্যা হয়, তাই
-                ক্লায়েন্টের সঠিক কমিউনিকেশনটা খুবই গুরুত্বপূর্ণ। এই কারণেই আমি
-                তৈরি করেছি এই Freelancing Client Communication কোর্সটি, এই
-                কোর্সটি আমি আমার নিজের কয়েক বছরের রিয়েল এক্সপেরিয়েন্স দিয়ে
-                সাজিয়েছি।
-              </p>
-
-              {/* Gradient Fade Effect */}
-              {!expanded && (
-                <div className="absolute bottom-8 left-0 w-full h-16 bg-linear-to-t from-black/90 to-transparent pointer-events-none" />
-              )}
-
-              <button
-                onClick={() => setExpanded(!expanded)}
-                className="text-yellow-500 font-base hover:text-yellow-400 transition-colors relative z-10 cursor-pointer"
-              >
-                {expanded ? "See less ▲" : "See more ▼"}
-              </button>
-            </div>
-
-            {/* CTA Button - Left aligned and fixed size */}
-            <div className="flex justify-start mt-6">
-              <div className="flex items-center gap-4">
-                {/* 3. CTA Button */}
-                <Button
-                  href="/all-courses"
-                  variant="primary"
-                  size="md"
-                  icon={ShoppingCart}
-                >
-                  কোর্সটি তে ভর্তি হন
-                </Button>
-
-                {/* 1. Price Block (Actual Price & Discount) */}
-                <span className="text-4xl font-extrabold text-green-500">
-                  ৳1990
-                </span>
-                <div className="flex flex-col items-start text-lg leading-none">
-                  {/* Actual Price (Strikethrough) */}
-                  <span className="line-through text-gray-500">৳5000</span>
-                  {/* Discount Percentage */}
-                  <span className="font-bold text-red-500 mt-1">
-                    60% Discount
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Video */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="w-full max-w-3xl rounded-md overflow-hidden border-2 border-red-700 bg-gray-900 aspect-video">
-              <LiteYouTubeEmbed
-                id="rXkeA2SQ510"
-                title="আমাদের কোর্স কেনার উপায়"
-                poster="maxresdefault"
-                noCookie
-                adNetwork={false}
-                params="controls=0&modestbranding=1&rel=0&showinfo=0"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <CourseHeroSection {...freelancingHeroData} />
 
       {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center bg-black/50 rounded-lg p-6 border border-gray-800">
-              <Users className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">500+</div>
-              <div className="text-gray-400 text-sm">Students Enrolled</div>
-            </div>
-            <div className="text-center bg-black/50 rounded-lg p-6 border border-gray-800">
-              <Youtube className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">126</div>
-              <div className="text-gray-400 text-sm">Lessons</div>
-            </div>
-            <div className="text-center bg-black/50 rounded-lg p-6 border border-gray-800">
-              <Clock className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">62h 30m</div>
-              <div className="text-gray-400 text-sm">Course Duration</div>
-            </div>
-            <div className="text-center bg-black/50 rounded-lg p-6 border border-gray-800">
-              <ChartLine className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">All</div>
-              <div className="text-gray-400 text-sm">Level</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <StatsSection stats={communicationStats} />
 
-      {/* Modul Section */}
+      {/* Curriculum Section */}
       <CurriculumSection course_id="CLIENT-COMM" />
 
       {/* Testimonial Sections */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto">
-          {/* Testimonial */}
-          <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 sm:p-12 shadow-lg transition-all duration-300 hover:bg-gray-100">
-            <p className="text-2xl sm:text-3xl font-semibold text-gray-800 leading-relaxed">
-              আমি চাই, আপনি সঠিক পথে এগিয়ে{" "}
-              <span className="text-red-600 font-bold">
-                একজন সফল ফ্রিল্যান্সার
-              </span>{" "}
-              হয়ে উঠুন। বিগত পাঁচ বছরের ফ্রিল্যান্সিং অভিজ্ঞতা থেকে অর্জিত
-              জ্ঞান ও বাস্তব অভিজ্ঞতার আলোকে আমি এই কোর্সটি সাজিয়েছি।
-            </p>
-          </div>
-        </div>
-      </section>
+      <TestimonialSection />
 
       {/* Course Features Section */}
     </div>
