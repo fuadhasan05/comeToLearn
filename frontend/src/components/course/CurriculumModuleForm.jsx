@@ -6,6 +6,7 @@ export default function CurriculumModuleForm({
   updateLessonField,
   addLessonToForm,
   removeLessonFromForm,
+  handleDelete,
 }) {
   return (
     <div className="bg-white shadow-lg rounded-xl p-6 mb-6 border border-gray-200">
@@ -20,6 +21,23 @@ export default function CurriculumModuleForm({
           >
             Cancel
           </button>
+
+          {formModule && formModule._id && (
+            <button
+              onClick={() => {
+                if (!formModule || !formModule._id) return;
+                const ok = confirm('Are you sure you want to delete this module? This action cannot be undone.');
+                if (!ok) return;
+                // call handler passed from parent
+                // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+                handleDelete && handleDelete(formModule._id);
+              }}
+              className="bg-red-600 text-white px-3 py-1 rounded cursor-pointer"
+            >
+              Delete
+            </button>
+          )}
+
           <button
             onClick={saveModule}
             className="bg-blue-600 text-white px-3 py-1 rounded cursor-pointer"

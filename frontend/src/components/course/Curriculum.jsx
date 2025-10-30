@@ -227,6 +227,23 @@ export default function CurriculumSection({ course_id }) {
     }
   };
 
+  const handleDeleteModule = async (moduleId) => {
+    if (!moduleId) return;
+    try {
+      const url = `${process.env.NEXT_PUBLIC_API_URL}/api/modules/${moduleId}`;
+      const res = await fetch(url, { method: "DELETE" });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || 'Failed to delete module');
+      // Close form and refresh list
+      setShowForm(false);
+      setFormModule(null);
+      await fetchCurriculum();
+    } catch (err) {
+      console.error('Error deleting module:', err);
+      alert(`Failed to delete module: ${err.message}`);
+    }
+  };
+
   // --- Render ---
 
   return (
@@ -272,6 +289,7 @@ export default function CurriculumSection({ course_id }) {
             updateLessonField={updateLessonField}
             addLessonToForm={addLessonToForm}
             removeLessonFromForm={removeLessonFromForm}
+            handleDelete={handleDeleteModule}
           />
         )}
 
