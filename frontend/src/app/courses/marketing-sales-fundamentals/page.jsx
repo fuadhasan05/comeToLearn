@@ -33,8 +33,8 @@ export default function FreelancingCalculatorPage() {
 
   const communicationStats = [
     { value: "150+", label: "Students Enrolled" },
-    { value: "21", label: "Lessons" },
-    { value: "4h 19m", label: "Course Duration" },
+    { value: "19", label: "Lessons" },
+    { value: "3h 55m", label: "Course Duration" },
     { value: "Intermediate", label: "Level" },
   ];
 
