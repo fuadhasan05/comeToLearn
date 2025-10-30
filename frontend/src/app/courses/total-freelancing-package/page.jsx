@@ -20,11 +20,19 @@ export default function FreelancingCalculatorPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-start gap-10">
           {/* Left Content */}
           <div className="flex flex-col justify-center">
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <div className="bg-yellow-500/20 text-white px-3 py-1 rounded-full border border-yellow-500 text-xs font-semibold shadow-md">
+                Premium Course
+              </div>
+              <div className="bg-red-600/20 text-white px-3 py-1 rounded-full border border-red-500 text-xs font-semibold shadow-md">
+                Recorded
+              </div>
+            </div>
             <h1 className="text-3xl md:text-5xl font-bold mb-6">
               Total Freelancing Package
             </h1>
 
-            <h2 className="text-2xl md:text-4xl font-bold text-yellow-600 mb-4 leading-tight">
+            <h2 className="text-2xl md:text-3xl font-bold text-yellow-500 mb-4 leading-tight">
               শুধুমাত্র Google Ads কেন?
             </h2>
 
@@ -54,7 +62,7 @@ export default function FreelancingCalculatorPage() {
 
               <button
                 onClick={() => setExpanded(!expanded)}
-                className="text-yellow-400 font-semibold hover:text-yellow-300 transition-colors relative z-10 cursor-pointer"
+                className="text-yellow-500 font-base hover:text-yellow-400 transition-colors relative z-10 cursor-pointer"
               >
                 {expanded ? "See less ▲" : "See more ▼"}
               </button>
@@ -62,14 +70,30 @@ export default function FreelancingCalculatorPage() {
 
             {/* CTA Button - Left aligned and fixed size */}
             <div className="flex justify-start mt-6">
-              <Button
-                href="/all-courses"
-                variant="primary"
-                size="md"
-                icon={ShoppingCart}
-              >
-                কোর্সটি তে ভর্তি হন
-              </Button>
+              <div className="flex items-center gap-4">
+                {/* 3. CTA Button */}
+                <Button
+                  href="/all-courses"
+                  variant="primary"
+                  size="md"
+                  icon={ShoppingCart}
+                >
+                  কোর্সটি তে ভর্তি হন
+                </Button>
+
+                {/* 1. Price Block (Actual Price & Discount) */}
+                <span className="text-4xl font-extrabold text-green-500">
+                  ৳2990
+                </span>
+                <div className="flex flex-col items-start text-lg leading-none">
+                  {/* Actual Price (Strikethrough) */}
+                  <span className="line-through text-gray-500">৳5000</span>
+                  {/* Discount Percentage */}
+                  <span className="font-bold text-red-500 mt-1">
+                    40% Discount
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
 

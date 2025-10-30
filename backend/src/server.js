@@ -12,19 +12,38 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ MongoDB Connection
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => console.log("✅ MongoDB Connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+const mongoUri = process.env.MONGODB_URI;
 
-// ✅ API Routes
+if (!mongoUri) {
+  console.error('MONGODB_URI is not set in environment. Aborting startup.');
+  process.exit(1);
+}
+
+// Register middleware and routes before starting the server
 app.use("/api/courses", courseRoutes);
-
-// Courses Modules
-app.use('/api/modules', moduleRoutes); 
+app.use('/api/modules', moduleRoutes);
 
 // Root route
 app.get("/", (req, res) => res.send("API is running 🚀"));
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Connect to MongoDB, then start the server. This prevents the app from
+// accepting requests that would trigger Mongoose queries before the
+// connection is established (which causes buffering/timeouts).
+mongoose
+  .connect(mongoUri, {
+    // Use the new unified topology engine
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("✅ MongoDB Connected");
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
+    // Exit the process — better to fail fast in prod so the platform can
+    // restart with a correct config rather than accept requests that will fail.
+    process.exit(1);
+  });
