@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, LogOut, LogIn, User } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 
 // Small avatar component: show photoURL if present, otherwise show initials
@@ -176,7 +176,23 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [is10TKDropdownOpen, setIs10TKDropdownOpen] = useState(false);
   const [isPremiumDropdownOpen, setIsPremiumDropdownOpen] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
   const { user, logout } = useAuth();
+
+  // Handle click outside to close user menu
+  const handleClickOutside = useCallback((event) => {
+    if (showUserMenu && !event.target.closest('.user-menu')) {
+      setShowUserMenu(false);
+    }
+  }, [showUserMenu]);
+
+  // Add/remove click outside listener
+  useEffect(() => {
+    if (showUserMenu) {
+      document.addEventListener('click', handleClickOutside);
+    }
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [showUserMenu, handleClickOutside]);
 
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -260,20 +276,50 @@ const Navbar = () => {
             {/* Login Button */}
             {/* User Info and Logout */}
             {user ? (
-              <div className="flex items-center gap-3">
-                <UserAvatar user={user} size={36} />
-                <button
-                  onClick={logout}
-                  className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md"
+              <div className="relative user-menu">
+                <button 
+                  onClick={() => setShowUserMenu(!showUserMenu)}
+                  className="flex items-center cursor-pointer"
+                  aria-label="User menu"
+                  aria-expanded={showUserMenu}
                 >
-                  Logout
+                  <UserAvatar user={user} size={36} />
                 </button>
+                
+                {/* Dropdown Menu */}
+                {showUserMenu && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg py-1 z-50">
+                    <div className="px-4 py-2 border-b border-gray-700">
+                      <p className="text-sm text-gray-600">Signed in as- </p>
+                      <p className="text-sm font-medium text-gray-900 truncate">{user.displayName}</p>
+                    </div>
+                    <Link
+                      href="/dashboard"
+                      onClick={() => setShowUserMenu(false)}
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-gray-900 hover:bg-gray-200"
+                    >
+                      <User className="w-4 h-4" />
+                      Dashboard
+                    </Link>
+                    <button
+                      onClick={() => {
+                        setShowUserMenu(false);
+                        logout();
+                      }}
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-gray-200 w-full text-left"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      Logout
+                    </button>
+                  </div>
+                )}
               </div>
             ) : (
               <Link
                 href="/login"
-                className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md"
+                className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md flex items-center gap-2"
               >
+                <LogIn className="w-4 h-4" />
                 Login
               </Link>
             )}
@@ -352,24 +398,39 @@ const Navbar = () => {
 
           {/* Mobile User Info and Logout */}
           {user ? (
-            <div className="flex items-center gap-3 px-3 py-2">
-              <UserAvatar user={user} size={32} />
+            <div className="px-3 py-2 space-y-1">
+              <div className="flex items-center gap-2 px-3 py-2 text-white">
+                <UserAvatar user={user} size={32} />
+                <div className="flex-1">
+                  <p className="font-medium">{user.displayName}</p>
+                </div>
+              </div>
+              <Link
+                href="/dashboard"
+                onClick={closeMobileMenu}
+                className="block px-3 py-2 text-white hover:bg-gray-900 rounded-md flex items-center gap-2"
+              >
+                <User className="w-4 h-4" />
+                Dashboard
+              </Link>
               <button
                 onClick={() => {
                   logout();
                   closeMobileMenu();
                 }}
-                className="bg-gray-800 hover:bg-gray-700 text-white px-3 py-1 rounded-md"
+                className="w-full px-3 py-2 text-white hover:bg-gray-900 rounded-md flex items-center gap-2"
               >
+                <LogOut className="w-4 h-4" />
                 Logout
               </button>
             </div>
           ) : (
             <Link
               href="/login"
-              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md"
+              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md flex items-center gap-2"
               onClick={closeMobileMenu}
             >
+              <LogIn className="w-4 h-4" />
               Login
             </Link>
           )}

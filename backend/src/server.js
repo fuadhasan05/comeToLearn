@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import courseRoutes from "./routes/courseRoutes.js";
 import moduleRoutes from "./routes/module.routes.js";
+import enrollmentRoutes from './routes/enrollment.routes.js';
 
 dotenv.config();
 const app = express();
@@ -19,21 +20,18 @@ if (!mongoUri) {
   process.exit(1);
 }
 
-// Register middleware and routes before starting the server
+// middleware and routes
 app.use("/api/courses", courseRoutes);
 app.use('/api/modules', moduleRoutes);
+app.use('/api/enrollments', enrollmentRoutes);
 
 // Root route
 app.get("/", (req, res) => res.send("API is running 🚀"));
 
 const PORT = process.env.PORT || 5000;
 
-// Connect to MongoDB, then start the server. This prevents the app from
-// accepting requests that would trigger Mongoose queries before the
-// connection is established (which causes buffering/timeouts).
 mongoose
   .connect(mongoUri, {
-    // Use the new unified topology engine
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -43,7 +41,5 @@ mongoose
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err);
-    // Exit the process — better to fail fast in prod so the platform can
-    // restart with a correct config rather than accept requests that will fail.
     process.exit(1);
   });
