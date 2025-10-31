@@ -3,6 +3,46 @@
 import { useState, useCallback } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
+
+// Small avatar component: show photoURL if present, otherwise show initials
+const UserAvatar = ({ user, size = 36 }) => {
+  const [imgError, setImgError] = useState(false);
+
+  const displayName = user?.displayName || "";
+  const initials = displayName
+    ? displayName
+        .split(" ")
+        .map((n) => n[0])
+        .slice(0, 2)
+        .join("")
+        .toUpperCase()
+    : "U";
+
+  const photo = user?.photoURL;
+
+  const sizePx = `${size}px`;
+
+  return (
+    <div
+      className="flex items-center justify-center rounded-full overflow-hidden bg-gray-300 text-gray-800"
+      style={{ width: sizePx, height: sizePx, minWidth: sizePx }}
+      aria-hidden={false}
+    >
+      {photo && !imgError ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={photo}
+          alt={displayName || "User avatar"}
+          onError={() => setImgError(true)}
+          style={{ width: sizePx, height: sizePx, objectFit: "cover" }}
+        />
+      ) : (
+        <span className="font-medium">{initials}</span>
+      )}
+    </div>
+  );
+};
 
 // --- Components for Reusability ---
 const DropdownLink = ({ href, children, onClick }) => (
@@ -91,7 +131,10 @@ export const navData = {
     {
       title: "10 TK Course",
       links: [
-        { href: "/courses/freelancing-calculator", label: "Freelancing Calculator" },
+        {
+          href: "/courses/freelancing-calculator",
+          label: "Freelancing Calculator",
+        },
         { href: "/courses/google-ads-basic", label: "Google Ads Basic Course" },
       ],
     },
@@ -133,6 +176,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [is10TKDropdownOpen, setIs10TKDropdownOpen] = useState(false);
   const [isPremiumDropdownOpen, setIsPremiumDropdownOpen] = useState(false);
+  const { user, logout } = useAuth();
 
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -214,12 +258,25 @@ const Navbar = () => {
             ))}
 
             {/* Login Button */}
-            <Link
-              href="/login"
-              className="bg-red-700 hover:bg-red-600 text-white px-6 py-2 rounded-md font-medium transition-colors"
-            >
-              Login
-            </Link>
+            {/* User Info and Logout */}
+            {user ? (
+              <div className="flex items-center gap-3">
+                <UserAvatar user={user} size={36} />
+                <button
+                  onClick={logout}
+                  className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link
+                href="/login"
+                className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md"
+              >
+                Login
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -293,14 +350,29 @@ const Navbar = () => {
             </Link>
           ))}
 
-          {/* Mobile Login Button */}
-          <Link
-            href="/login"
-            className="block px-3 py-2 mt-2 bg-red-700 hover:bg-red-600 text-white rounded-md font-medium text-center transition-colors"
-            onClick={closeMobileMenu}
-          >
-            Login
-          </Link>
+          {/* Mobile User Info and Logout */}
+          {user ? (
+            <div className="flex items-center gap-3 px-3 py-2">
+              <UserAvatar user={user} size={32} />
+              <button
+                onClick={() => {
+                  logout();
+                  closeMobileMenu();
+                }}
+                className="bg-gray-800 hover:bg-gray-700 text-white px-3 py-1 rounded-md"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link
+              href="/login"
+              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md"
+              onClick={closeMobileMenu}
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </nav>
