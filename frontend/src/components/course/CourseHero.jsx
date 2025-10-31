@@ -15,7 +15,7 @@ export default function CourseHeroSection({
   subtitle,
   description,
   buttonText,
-  buttonHref = "/all-courses", // Default href
+  buttonHref = `/enroll/${course.course_id}`, // Default href
   currentPrice,
   originalPrice,
   discountPercentage,
@@ -42,34 +42,41 @@ export default function CourseHeroSection({
           </div>
 
           {/* 1. Customizable Title */}
-          <h1 className="text-3xl md:text-5xl font-bold mb-6">{title}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+            {title}
+          </h1>
 
           {/* Customizable Subtitle */}
-          <h2 className="text-2xl md:text-3xl font-bold text-yellow-500 mb-4 leading-tight">
+          <h2 className="text-xl md:text-2xl font-bold text-yellow-500 mb-4 leading-tight">
             {subtitle}
           </h2>
 
           {/* 2. Customizable Content (with expand/collapse) */}
           <div className="relative text-left">
             <p
-              className={`text-lg md:text-xl text-white mb-4 leading-relaxed transition-all duration-300 ${
+              className={`text-md md:text-lg text-white mb-4 leading-relaxed transition-all duration-300 ${
                 expanded ? "max-h-[1000px]" : "max-h-34 overflow-hidden"
               }`}
             >
               {description}
             </p>
 
-            {/* Gradient Fade Effect */}
-            {!expanded && (
-              <div className="absolute bottom-8 left-0 w-full h-16 bg-linear-to-t from-black/90 to-transparent pointer-events-none" />
-            )}
+            {/* Conditional Rendering: Only render the fade effect AND the button if description has content */}
+            {description && (
+              <>
+                {/* Gradient Fade Effect (Only shown when not expanded) */}
+                {!expanded && (
+                  <div className="absolute bottom-8 left-0 w-full h-16 bg-linear-to-t from-black/90 to-transparent pointer-events-none" />
+                )}
 
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="text-yellow-500 font-base hover:text-yellow-400 transition-colors relative z-10 cursor-pointer"
-            >
-              {expanded ? "See less ▲" : "See more ▼"}
-            </button>
+                <button
+                  onClick={() => setExpanded(!expanded)}
+                  className="text-yellow-500 font-base hover:text-yellow-400 transition-colors relative z-10 cursor-pointer"
+                >
+                  {expanded ? "See less ▲" : "See more ▼"}
+                </button>
+              </>
+            )}
           </div>
 
           {/* CTA Button and 3. Price Block */}

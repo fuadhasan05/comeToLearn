@@ -1,21 +1,9 @@
 "use client";
-import {
-  Star,
-  Clock,
-  Users,
-  CheckCircle,
-  TrendingUp,
-  ShoppingCart,
-  ChartLine,
-} from "lucide-react";
-import Button from "../../../components/ui/Button";
-import dynamic from "next/dynamic";
-import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+import { CheckCircle, TrendingUp } from "lucide-react";
+import CourseHeroSection from "../../../components/course/CourseHero";
+import StatsSection from "../../../components/course/CourseStats";
 import CurriculumSection from "../../../components/course/Curriculum";
-
-const LiteYouTubeEmbed = dynamic(() => import("react-lite-youtube-embed"), {
-  ssr: false,
-});
+import TestimonialSection from "../../../components/course/Testimonial";
 
 export default function FreelancingCalculatorPage() {
   const courseFeatures = [
@@ -27,83 +15,46 @@ export default function FreelancingCalculatorPage() {
     "ফ্রিল্যান্সিং জীবনের সকল হিসাব মিলাতে পারবেন",
   ];
 
+  const freelancingHeroData = {
+    tags: [
+      {
+        label: "10Tk Course",
+        bgColor: "bg-yellow-500/20",
+        borderColor: "border-yellow-500",
+      },
+      {
+        label: "Recorded",
+        bgColor: "bg-red-600/20",
+        borderColor: "border-red-500",
+      },
+    ],
+    title:
+      "Freelancing Calculator - ১০ টাকায় ফ্রিল্যান্সিং শুরু করার সঠিক গাইডলাইন!",
+    subtitle: "ফ্রিল্যান্সিং কি আপনার জন্য উপযুক্ত? জেনে নিন মাত্র ১০টাকায়",
+    description: "",
+    buttonText: "১০ টাকা দিয়ে এখনই কোর্স করুন",
+    buttonHref: "/enroll/CALC-001", // Example dynamic href
+    currentPrice: "৳10",
+    originalPrice: "",
+    discountPercentage: "",
+    videoId: "gAC_PXe1YvU",
+    videoTitle: "Total Freelancing Package",
+  };
+
+  const communicationStats = [
+    { value: "350+", label: "Students Enrolled" },
+    { value: "22", label: "Lessons" },
+    { value: "1h 30m", label: "Course Duration" },
+    { value: "Beginner", label: "Level" },
+  ];
+
   return (
     <div className="bg-black text-white">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
-          {/* Left Content */}
-          <div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6">
-              1. Freelancing Calculator
-            </h1>
-
-            <h2 className="text-2xl md:text-4xl font-bold text-yellow-600 mb-4 leading-tight">
-              ফ্রিল্যান্সিং কি আপনার জন্য উপযুক্ত?
-              <br />
-              <span className="text-white">জেনে নিন মাত্র ১০ টাকায়</span>
-            </h2>
-
-            <p className="text-lg md:text-xl text-white mb-8 leading-relaxed">
-              বাংলাদেশের <span className="text-red-500">৯০%</span> ফ্রিল্যান্সার
-              ভুল পথে যাত্রা শুরু করে। আমি চাই না, আপনিও সেই ৯০% এর একজন হোন। এই
-              কোর্সটি আপনাকে বাকি ১০% এর মধ্যকার একজন বানাবে, ইনশাআল্লাহ।
-            </p>
-
-            <Button
-              href="/all-courses"
-              variant="primary"
-              size="md"
-              className="inline-flex items-center"
-              icon={ShoppingCart}
-            >
-              ১০ টাকা দিয়ে এখনই কোর্স করুন
-            </Button>
-          </div>
-
-          {/* Right Video */}
-          <div className="flex justify-center">
-            <div className="w-full max-w-3xl rounded-md overflow-hidden border-2 border-red-700 bg-gray-900 aspect-video">
-              <LiteYouTubeEmbed
-                id="gAC_PXe1YvU"
-                title="আমাদের কোর্স কেনার উপায়"
-                poster="maxresdefault"
-                noCookie
-                adNetwork={false}
-                params="controls=0&modestbranding=1&rel=0&showinfo=0"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <CourseHeroSection {...freelancingHeroData} />
 
       {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center bg-black/50 rounded-lg p-6 border border-gray-800">
-              <Users className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">350+</div>
-              <div className="text-gray-400 text-sm">Students Enrolled</div>
-            </div>
-            <div className="text-center bg-black/50 rounded-lg p-6 border border-gray-800">
-              <Star className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">5.0</div>
-              <div className="text-gray-400 text-sm">Course Rating</div>
-            </div>
-            <div className="text-center bg-black/50 rounded-lg p-6 border border-gray-800">
-              <Clock className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">1h 30m</div>
-              <div className="text-gray-400 text-sm">Course Duration</div>
-            </div>
-            <div className="text-center bg-black/50 rounded-lg p-6 border border-gray-800">
-              <ChartLine className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">Beginner</div>
-              <div className="text-gray-400 text-sm">Level</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <StatsSection stats={communicationStats} />
 
       {/* Value Proposition Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
@@ -133,21 +84,7 @@ export default function FreelancingCalculatorPage() {
       <CurriculumSection course_id="CALC-001" />
 
       {/* Testimonial Sections */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-black via-gray-900 to-black">
-        <div className="max-w-4xl mx-auto">
-          {/* Testimonial */}
-          <div className="bg-gray-800/50 backdrop-blur-md border border-gray-700 rounded-xl p-8 sm:p-12 shadow-lg transition-all duration-300 hover:bg-gray-800/70">
-            <p className="text-2xl sm:text-3xl font-semibold text-gray-100 leading-relaxed">
-              আমি চাই, আপনি সঠিক পথে এগিয়ে{" "}
-              <span className="text-red-500 font-bold">
-                একজন সফল ফ্রিল্যান্সার
-              </span>{" "}
-              হয়ে উঠুন। বিগত পাঁচ বছরের ফ্রিল্যান্সিং অভিজ্ঞতা থেকে অর্জিত জ্ঞান
-              ও বাস্তব অভিজ্ঞতার আলোকে আমি এই কোর্সটি সাজিয়েছি।
-            </p>
-          </div>
-        </div>
-      </section>
+      <TestimonialSection />
 
       {/* Course Features Section */}
       <section className="pt-16 pb-24 px-4 sm:px-6 lg:px-8 bg-white text-black">

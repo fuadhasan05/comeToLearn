@@ -4,7 +4,7 @@ import StatsSection from "../../../components/course/CourseStats";
 import CurriculumSection from "../../../components/course/Curriculum";
 import TestimonialSection from "../../../components/course/Testimonial";
 
-export default function FreelancingCalculatorPage() {
+export default function TotalFreelancingPage() {
   const freelancingHeroData = {
     tags: [
       {
@@ -18,12 +18,12 @@ export default function FreelancingCalculatorPage() {
         borderColor: "border-red-500",
       },
     ],
-    title: "Total Freelancing Package",
+    title: "Total Freelancing Package with Unlimited Live Support",
     subtitle: "কোর্সটির মূল উদ্দেশ্য কী?",
     description:
       "বর্তমান বাংলাদেশের আইটি প্রেক্ষাপটে অনেক প্রতিষ্ঠান আছে যারা ফ্রিল্যান্সিং শেখানোর নামে পুরোপুরি ডিজিটাল মার্কেটিং শেখানোর চেষ্টা করে। কিন্তু এইভাবে শেখানোর ফলে অনেক শিক্ষার্থী তাদের সঠিক দক্ষতা খুঁজে পায় না এবং বুঝতে পারে না কোন বিষয়ে তারা এক্সপার্টহবে। এই কারণেই আমি Google Ads এর উপর কাজ করি এবং একটি বিশেষ কোর্স পরিচালনা করি। এই কোর্সে আপনি শুধু Google Ads শিখবেন না, বরং Fiverr এবং Upwork এর মতো মার্কেটপ্লেসগুলো থেকে কিভাবে Google Ads সার্ভিস বিক্রি করে ইনকাম জেনারেট করা যায়, তা শেখানো হবে। ইনশাআল্লাহ, আমি শুরু থেকে শেষ পর্যন্ত আপনার পাশে থাকবো এবং আপনাকে ফ্রিল্যান্সিং ক্যারিয়ারে সফলতার পথে গাইড করবো।",
     buttonText: "কোর্সটি তে ভর্তি হন",
-    buttonHref: "/courses/freelancing-client-comm/enroll", // Example dynamic href
+    buttonHref: "/enroll/FREE-PKG", // Example dynamic href
     currentPrice: "৳2990",
     originalPrice: "৳5000",
     discountPercentage: "40% Discount",
@@ -33,8 +33,8 @@ export default function FreelancingCalculatorPage() {
 
   const communicationStats = [
     { value: "500+", label: "Students Enrolled" },
-    { value: "60", label: "Lessons" },
-    { value: "12h 30m", label: "Course Duration" },
+    { value: "125", label: "Lessons" },
+    { value: "62h 30m", label: "Course Duration" },
     { value: "Beginner", label: "Level" },
   ];
 
@@ -47,7 +47,7 @@ export default function FreelancingCalculatorPage() {
       <StatsSection stats={communicationStats} />
 
       {/* Curriculum Section */}
-      <CurriculumSection course_id="CLIENT-COMM" />
+      <CurriculumSection course_id="FREE-PKG" />
 
       {/* Testimonial Sections */}
       <TestimonialSection />
