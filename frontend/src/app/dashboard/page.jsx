@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import Loading from '@/components/ui/Loading';
 
 // Helper function to format last accessed date in Bangla
 const formatLastAccessed = (date) => {
@@ -33,7 +35,6 @@ import {
   BookOpen, 
   Clock, 
   PlayCircle,
-  User,
   Settings,
   CheckCircle,
 } from 'lucide-react';
@@ -61,6 +62,7 @@ export default function DashboardPage() {
       // Fetch enrolled courses
       fetchEnrolledCourses();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const fetchEnrolledCourses = async () => {
@@ -102,13 +104,10 @@ export default function DashboardPage() {
   };
 
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-red-600 border-t-transparent rounded-full animate-spin"></div>
-      </div>
+      <Loading/>
     );
   }
 
@@ -230,11 +229,13 @@ export default function DashboardPage() {
                   >
                     <div className="flex flex-col sm:flex-row gap-4 p-4">
                       {/* Thumbnail */}
-                      <div className="sm:w-48 h-32 rounded-lg overflow-hidden shrink-0">
-                        <img
+                      <div className="sm:w-48 h-32 rounded-lg overflow-hidden shrink-0 relative">
+                        <Image
                           src={course.thumbnail}
                           alt={course.title}
-                          className="w-full h-full object-cover"
+                          fill
+                          sizes="(max-width: 640px) 100vw, 192px"
+                          className="object-cover"
                         />
                       </div>
 

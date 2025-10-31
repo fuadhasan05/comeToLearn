@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown, LogOut, LogIn, User } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
+import Image from 'next/image';
 
 // Small avatar component: show photoURL if present, otherwise show initials
 const UserAvatar = ({ user, size = 36 }) => {
@@ -30,12 +31,13 @@ const UserAvatar = ({ user, size = 36 }) => {
       aria-hidden={false}
     >
       {photo && !imgError ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <Image
           src={photo}
           alt={displayName || "User avatar"}
+          width={size}
+          height={size}
+          className="object-cover"
           onError={() => setImgError(true)}
-          style={{ width: sizePx, height: sizePx, objectFit: "cover" }}
         />
       ) : (
         <span className="font-medium">{initials}</span>
@@ -408,7 +410,7 @@ const Navbar = () => {
               <Link
                 href="/dashboard"
                 onClick={closeMobileMenu}
-                className="block px-3 py-2 text-white hover:bg-gray-900 rounded-md flex items-center gap-2"
+                className="block px-3 py-2 text-white hover:bg-gray-900 rounded-md items-center gap-2"
               >
                 <User className="w-4 h-4" />
                 Dashboard
