@@ -1,37 +1,79 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const lessonSchema = new mongoose.Schema({
-  lesson_id: String,
-  title: String,
-  duration_minutes: Number,
-  video_url: String,
-});
-
-const priceSchema = new mongoose.Schema({
-  original: Number,
-  discounted: Number,
-  currency: String,
-  is_discounted: Boolean,
-  discount_percentage: Number,
-});
-
-const imageSchema = new mongoose.Schema({
-  url: String,
-  alt_text: String,
+  lesson_id: {
+    type: String,
+    required: true
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  duration_minutes: {
+    type: Number,
+    required: true
+  },
+  video_url: {
+    type: String,
+    required: true
+  }
 });
 
 const courseSchema = new mongoose.Schema({
-  course_id: String,
-  route: String,
-  title: String,
-  short_title: String,
-  price: priceSchema,
-  is_free: Boolean,
-  category: String,
-  image: imageSchema,
+  course_id: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  route: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  short_title: {
+    type: String,
+    required: true
+  },
+  price: {
+    original: Number,
+    discounted: Number,
+    currency: {
+      type: String,
+      default: 'BDT'
+    },
+    is_discounted: {
+      type: Boolean,
+      default: false
+    },
+    discount_percentage: Number
+  },
+  is_free: {
+    type: Boolean,
+    default: false
+  },
+  category: {
+    type: String,
+    required: true
+  },
+  image: {
+    url: String,
+    alt_text: String
+  },
   lessons: [lessonSchema],
-  date_created: Date,
-  is_published: Boolean,
+  date_created: {
+    type: Date,
+    default: Date.now
+  },
+  is_published: {
+    type: Boolean,
+    default: true
+  }
+}, {
+  timestamps: true
 });
 
-export default mongoose.models.Course || mongoose.model("Course", courseSchema);
+export default mongoose.model('Course', courseSchema);

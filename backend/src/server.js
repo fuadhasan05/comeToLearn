@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
-import courseRoutes from "./routes/courseRoutes.js";
+import courseRoutes from "./routes/course.routes.js";
 import moduleRoutes from "./routes/module.routes.js";
 import enrollmentRoutes from './routes/enrollment.routes.js';
 
