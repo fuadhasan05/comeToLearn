@@ -17,13 +17,18 @@ export default function FreelancingCalculatorPage() {
         bgColor: "bg-red-600/20",
         borderColor: "border-red-500",
       },
+      {
+        label: "Preorder",
+        bgColor: "bg-blue-600/20",
+        borderColor: "border-blue-500",
+      },
     ],
-    title: "Google Ads Conversion Tracking",
+    title: "Google Ads Conversion Tracking For Lead Generation + Live Support",
     subtitle: "",
     description:
-      "Google Ads Conversion Tracking For Lead Generation + Live Support ( Preorder Booking )",
+      "",
     buttonText: "কোর্সটি তে ভর্তি হন",
-    buttonHref: "/courses/freelancing-client-comm/enroll", // Example dynamic href
+    buttonHref: "/enroll/GADS-TRACK", // dynamic href
     currentPrice: "৳1490",
     originalPrice: "৳3000",
     discountPercentage: "50% Discount",

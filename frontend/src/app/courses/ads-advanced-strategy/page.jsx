@@ -18,12 +18,12 @@ export default function FreelancingCalculatorPage() {
         borderColor: "border-red-500",
       },
     ],
-    title: "Google Ads Advanced Strategy & Optimization",
+    title: "Google Ads Advanced Strategy and Optimization Course - Become a Pro! For Advanced Learners Only",
     subtitle: "কোর্সটি মূলত কাদের জন্য?",
     description:
       "Google Ads Advanced Strategy and Optimization কোর্সে আমি গুগল অ্যাডস অপটিমাইজেশনের মৌলিক থেকে অ্যাডভান্সড কৌশলগুলো শিখিয়েছি, যা আপনার ক্লায়েন্টের ক্যাম্পেইনগুলিকে কম খরচে আরও বেশি কনভার্সন আনতে সাহায্য করবে, ইনশা আল্লাহ। তবে, যারা গুগল এডস সম্পর্কে একেবারেই জানেন না বা গুগল এডস নিয়ে কোনো বেসিক কোর্স করেননি, তাদের জন্য এই কোর্সটি উপযুক্ত নয়।",
     buttonText: "কোর্সটি তে ভর্তি হন",
-    buttonHref: "/courses/freelancing-client-comm/enroll", // Example dynamic href
+    buttonHref: "/enroll/GADS-CONV", // dynamic href
     currentPrice: "৳1990",
     originalPrice: "৳2500",
     discountPercentage: "10% Discount",

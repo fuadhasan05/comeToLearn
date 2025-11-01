@@ -18,12 +18,12 @@ export default function FreelancingCalculatorPage() {
         borderColor: "border-red-500",
       },
     ],
-    title: "Freelancing Client Communication",
+    title: "Advanced Client Communication A to Z - The Ultimate Selling Machine",
     subtitle: "কোর্সটির মূল উদ্দেশ্য কী?",
     description:
       "ফ্রিল্যান্সিং ইন্ডাস্ট্রিতে, আমাদের বাংলাদেশী ফ্রিল্যান্সারদের সবচেয়ে বড় চ্যালেঞ্জ হলো USA, UK, Canada, Germany, Netherland এর মতো দেশের বায়ারদের সাথে সঠিকভাবে কমিউনিকেশন করা। কাজের ডিটেইলস ঠিকমতো না বুঝে কাজ নিলে পরে অনেক সমস্যা হয়, তাই ক্লায়েন্টের সঠিক কমিউনিকেশনটা খুবই গুরুত্বপূর্ণ। এই কারণেই আমি তৈরি করেছি এই Freelancing Client Communication কোর্সটি, এই কোর্সটি আমি আমার নিজের কয়েক বছরের রিয়েল এক্সপেরিয়েন্স দিয়ে সাজিয়েছি।",
     buttonText: "কোর্সটি তে ভর্তি হন",
-    buttonHref: "/courses/freelancing-client-comm/enroll", // Example dynamic href
+    buttonHref: "/enroll/CLIENT-COMM", // dynamic href
     currentPrice: "৳1990",
     originalPrice: "৳5000",
     discountPercentage: "60% Discount",

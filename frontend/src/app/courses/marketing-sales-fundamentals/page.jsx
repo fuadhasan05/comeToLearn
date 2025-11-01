@@ -18,12 +18,12 @@ export default function FreelancingCalculatorPage() {
         borderColor: "border-red-500",
       },
     ],
-    title: "Fundamental of Marketing & Sales",
+    title: "Fundamental of Marketing and Sales - Be Prepared Before Outreach Your Client",
     subtitle: "কোর্সটি মূলত কাদের জন্য?",
     description:
       "Fundamental of Marketing and Sales কোর্সে আপনি মার্কেটিং ও সেলসের ফান্ডামেন্টাল বিষয়গুলো শিখবেন, যা শুধুমাত্র Fiverr বা Upwork-এর জন্য সীমাবদ্ধ নয়। আমার শেয়ার করা কার্যকরী টিপস ও ট্রিকস সঠিকভাবে প্রয়োগ করলে আপনি অনলাইন মার্কেটপ্লেসের বাইরেও ক্লায়েন্ট পেতে পারেন। এমনকি যেকোনো ফিজিক্যাল ব্যবসায় এই কৌশলগুলো ব্যবহার করে ভালো ফলাফল আনতে পারবেন ইনশাআল্লাহ। সঠিক কৌশল জানা থাকলে সফলতা অর্জন করা সম্ভব!",
     buttonText: "কোর্সটি তে ভর্তি হন",
-    buttonHref: "/courses/freelancing-client-comm/enroll", // Example dynamic href
+    buttonHref: "/enroll/MARK-SALES", // dynamic href
     currentPrice: "৳99",
     originalPrice: "৳5000",
     discountPercentage: "98% Discount",

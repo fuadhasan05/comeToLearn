@@ -17,13 +17,18 @@ export default function FreelancingCalculatorPage() {
         bgColor: "bg-red-600/20",
         borderColor: "border-red-500",
       },
+      {
+        label: "Upcoming",
+        bgColor: "bg-blue-600/20",
+        borderColor: "border-blue-500",
+      },
     ],
-    title: "The Freedom Freelancing Formula",
+    title: "3F - Master the Freedom Freelancing Formula",
     subtitle: "",
     description:
-      "Master the Freedom Freelancing Formula (Upcoming)",
+      "",
     buttonText: "কোর্সটি তে ভর্তি বন্ধ আছে",
-    buttonHref: "/courses/freelancing-client-comm/enroll", // Example dynamic href
+    buttonHref: "/enroll/3F-FORMULA", // dynamic href
     currentPrice: "৳50000",
     originalPrice: "",
     discountPercentage: "",
